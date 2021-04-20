@@ -1,0 +1,9 @@
+atcoder/*
+!atcoder/compete.toml
+!atcoder/rust-toolchain
+codeforces/*
+!codeforces/compete.toml
+!codeforces/rust-toolchain
+yukicoder/*
+!yukicoder/compete.toml
+!yukicoder/rust-toolchain
