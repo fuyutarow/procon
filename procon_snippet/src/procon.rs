@@ -8,3 +8,6 @@ use cargo_snippet::snippet;
 fn main() {
     todo!();
 }
+
+#[snippet("out")]
+println!("{}",);

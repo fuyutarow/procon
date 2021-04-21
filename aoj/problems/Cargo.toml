@@ -1,0 +1,10 @@
+[profile.dev]
+opt-level = 3
+
+[package]
+authors = ["fuyutarow <fuyutarow@gmail.com>"]
+edition = "2018"
+name = "aoj"
+version = "0.1.0"
+
+[package.metadata.cargo-compete.bin]

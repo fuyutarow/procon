@@ -22,34 +22,8 @@ test-suite = "{{ manifest_dir }}/testcases/{{ bin_alias }}.yml"
 
 [template]
 src = '''
-use std::cmp::{max, min};
-use std::collections::{HashMap, HashSet, VecDeque};
-use std::io::{stdin, stdout, BufWriter};
-
 fn main() {
-    let mut scan = Scanner::default();
-    let n = scan.next::<usize>();
-    let s = scan.next::<String>();
-    let v = (0..n).map(|_| scan.next()).collect::<Vec<isize>>();
-
-    dbg!(v);
-}
-
-#[derive(Default)]
-struct Scanner {
-    buffer: Vec<String>,
-}
-impl Scanner {
-    fn next<T: std::str::FromStr>(&mut self) -> T {
-        loop {
-            if let Some(token) = self.buffer.pop() {
-                return token.parse().ok().expect("Failed parse");
-            }
-            let mut input = String::new();
-            stdin().read_line(&mut input).expect("Failed read");
-            self.buffer = input.split_whitespace().rev().map(String::from).collect();
-        }
-    }
+    todo!();
 }
 '''
 
@@ -67,26 +41,33 @@ dependencies = '''
 
 [template.new.copy-files]
 
-[new]
-kind = "cargo-compete"
-# Platform
-#
-# - atcoder
-# - codeforces
-# - yukicoder
-platform = "codeforces"
-# Path (Liquid template)
-#
-# Variables:
-#
-# - `contest`:      Contest ID. **May be nil**
-# - `package_name`: Package name
-path = "./{{ contest }}"
+# [new]
+# kind = "cargo-compete"
+# # Platform
+# #
+# # - atcoder
+# # - codeforces
+# # - yukicoder
+# platform = "codeforces"
+# # Path (Liquid template)
+# #
+# # Variables:
+# #
+# # - `contest`:      Contest ID. **May be nil**
+# # - `package_name`: Package name
+# path = "./{{ contest }}"
 
-#[new]
-#kind = "oj-api"
-#url = "https://atcoder.jp/contests/{{ id }}"
-#path = "./{{ contest }}"
+# [new]
+# kind = "oj-api"
+# path = "./{{ contest }}"
+# platform = "aoj"
+# url = "https://onlinejudge.u-aizu.ac.jp/beta/room.html#{{ id }}"
+
+[add]
+bin-name = '{% assign segments = url | split: "=" %}{{ segments[1] }}'
+is-contest = ["bash", "-c", '[[ $(cut -d / -f 4) == "contests" ]]'] # optional
+url = "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id={{ args[0] }}"
+# url = '{% case args[0] %}{% when "contest" %}https://onlinejudge.u-aizu.ac.jp/beta/room.html#{{ args[1] }}{% when "problem" %}https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id={{ args[1] }}{% endcase %}'
 
 # for Library-Checker
 #[add]

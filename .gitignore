@@ -7,3 +7,6 @@ codeforces/*
 yukicoder/*
 !yukicoder/compete.toml
 !yukicoder/rust-toolchain
+# aoj/*
+# !aoj/compete.toml
+# !aoj/rust-toolchain

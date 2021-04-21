@@ -1,0 +1,5 @@
+src/bin/*.rs
+!src/bin/_.rs
+target/
+testcases/
+Cargo.lock
