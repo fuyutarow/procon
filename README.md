@@ -1,5 +1,11 @@
+## General
+Utils
+- [Calender](https://competitiveprogramming.info/calendar)
+- [AtCoder Problems](https://kenkoooo.com/atcoder/#/table/)
 
-## Hello
+## Workflows
+Utils
+- [cargo-compete](https://github.com/qryxip/cargo-compete)
 
 Setup
 ```sh
@@ -41,7 +47,6 @@ cd $_
 procon t a
 ```
 
-
 ### Aizu Online Judge
 https://judge.u-aizu.ac.jp/onlinejudge/
 ```sh
@@ -52,10 +57,15 @@ procon t ITP1_7_B
 ```
 
 ## snippet
+Utils
+- [cargo-snippet](https://github.com/hatoo/cargo-snippet)
+
+Setup
 ```sh
 cargo install cargo-snippet --features="binaries"
 ```
 
+Set the snippets to vscode
 ```sh
 cd snippets
 cargo snippet -t vscode > $(wslpath "$(wslvar USERPROFILE)")/AppData/Roaming/Code/User/snippets/rust.json 
