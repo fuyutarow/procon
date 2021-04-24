@@ -8,3 +8,6 @@ name = "aoj"
 version = "0.1.0"
 
 [package.metadata.cargo-compete.bin]
+ITP1_7_B = {problem = "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_7_B"}
+ITP1_7_A = {problem = "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_7_A"}
+ALDS1_11_B = {problem = "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_11_B"}

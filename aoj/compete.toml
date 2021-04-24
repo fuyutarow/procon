@@ -22,8 +22,44 @@ test-suite = "{{ manifest_dir }}/testcases/{{ bin_alias }}.yml"
 
 [template]
 src = '''
-fn main() {
+use std::cmp::{max, min};
+use std::collections::{HashMap, HashSet, VecDeque};
+use std::io::{stdin, stdout, BufWriter};
+
+fn solve(scan: &mut Scanner) {
+    let n = scan.next::<usize>();
+    let s = scan.next::<String>();
+    let v = (0..n).map(|_| scan.next()).collect::<Vec<isize>>();
+
+    if n == 0 {
+        std::process::exit(0);
+    }
+
     todo!();
+}
+
+fn main() {
+    let mut scan = Scanner::default();
+    loop {
+        solve(&mut scan);
+    }
+}
+
+#[derive(Default)]
+struct Scanner {
+    buffer: Vec<String>,
+}
+impl Scanner {
+    fn next<T: std::str::FromStr>(&mut self) -> T {
+        loop {
+            if let Some(token) = self.buffer.pop() {
+                return token.parse().ok().expect("Failed parse");
+            }
+            let mut input = String::new();
+            stdin().read_line(&mut input).expect("Failed read");
+            self.buffer = input.split_whitespace().rev().map(String::from).collect();
+        }
+    }
 }
 '''
 

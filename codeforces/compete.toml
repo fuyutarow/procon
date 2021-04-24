@@ -26,13 +26,23 @@ use std::cmp::{max, min};
 use std::collections::{HashMap, HashSet, VecDeque};
 use std::io::{stdin, stdout, BufWriter};
 
-fn main() {
-    let mut scan = Scanner::default();
+fn solve(scan: &mut Scanner) {
     let n = scan.next::<usize>();
     let s = scan.next::<String>();
     let v = (0..n).map(|_| scan.next()).collect::<Vec<isize>>();
 
-    dbg!(v);
+    if n == 0 {
+        std::process::exit(0);
+    }
+
+    todo!();
+}
+
+fn main() {
+    let mut scan = Scanner::default();
+    loop {
+        solve(&mut scan);
+    }
 }
 
 #[derive(Default)]

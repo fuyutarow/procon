@@ -9,5 +9,14 @@ fn main() {
     todo!();
 }
 
-#[snippet("out")]
+#[snippet("print1")]
 println!("{}",);
+
+#[snippet("printvec")]
+println!(
+    "{} ",
+    v.iter()
+        .map(|e| e.to_string())
+        .collect::<Vec<String>>()
+        .join(" ")
+);
