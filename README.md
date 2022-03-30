@@ -22,7 +22,7 @@ https://atcoder.jp/
 cd atcoder
 procon n abc095
 cd $_
-procon o --bin a
+procon d
 procon t a
 procon s a
 ```
