@@ -1,0 +1,16 @@
+[tool.poetry]
+authors = ["fuyutarow <fuyutarow@gmail.com>"]
+description = ""
+name = "procon"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+black = {version = "^22.1.0", allow-prereleases = true}
+ipykernel = "^6.9.1"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["setuptools", "poetry-core>=1.0.0"]
