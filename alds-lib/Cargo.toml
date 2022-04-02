@@ -9,4 +9,7 @@ version = "0.202203.0"
 name = "alds_lib"
 
 [dependencies]
+itertools = "=0.9.0"
+num = "=0.2.1"
 num-traits = "=0.2.11"
+rand = {version = "=0.7.3", features = ["small_rng"]}
