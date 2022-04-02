@@ -899,6 +899,21 @@ where
     }
 }
 
+impl<T> From<Vec<T>> for Counter<T>
+where
+    T: Hash + Eq,
+{
+    fn from(vec: Vec<T>) -> Self {
+        vec.into_iter().collect::<Counter<_>>()
+    }
+}
+
+impl From<String> for Counter<char> {
+    fn from(str: String) -> Self {
+        str.chars().collect::<Counter<_>>()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
