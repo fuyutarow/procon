@@ -1,9 +1,29 @@
 pub mod collections;
 
+pub mod monoid;
+use monoid::Monoid;
+
+/// impl_monoid!(Max, usize, 0, |&x,&y| std::cmp::max(x,y));
+#[macro_export]
+macro_rules! impl_monoid {
+    ($m:ident, $t:ty, $id:expr, $op:expr) => {
+        pub struct $m;
+        impl Monoid for $m {
+            type Value = $t;
+            fn id() -> Self::Value {
+                $id
+            }
+            fn op(x: &Self::Value, y: &Self::Value) -> Self::Value {
+                $op(x, y)
+            }
+        }
+    };
+}
+
 #[macro_export]
 macro_rules! chmin {
     ($base:expr, $($cmps:expr),+ $(,)*) => {{
-        let cmp_min = _min!($($cmps),+);
+        let cmp_min = min!($($cmps),+);
         if $base > cmp_min {
             $base = cmp_min;
             true
@@ -16,7 +36,7 @@ macro_rules! chmin {
 #[macro_export]
 macro_rules! chmax {
     ($base:expr, $($cmps:expr),+ $(,)*) => {{
-        let cmp_max = _max!($($cmps),+);
+        let cmp_max = max!($($cmps),+);
         if $base < cmp_max {
             $base = cmp_max;
             true
@@ -26,7 +46,8 @@ macro_rules! chmax {
     }};
 }
 
-macro_rules! _min {
+#[macro_export]
+macro_rules! min {
     ($a:expr $(,)*) => {{
         $a
     }};
@@ -38,7 +59,8 @@ macro_rules! _min {
     }};
 }
 
-macro_rules! _max {
+#[macro_export]
+macro_rules! max {
     ($a:expr $(,)*) => {{
         $a
     }};

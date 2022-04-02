@@ -30,14 +30,14 @@ src = '''
     non_camel_case_types
 )]
 
-use itertools::Itertools;
+use itertools::{Combinations, Itertools};
 use num::integer::gcd;
-use petgraph::algo::kosaraju_scc as scc;
-use petgraph::graph::NodeIndex;
-use petgraph::{Directed, Graph};
-use proconio::marker::{Chars, Usize1};
-use proconio::{fastout, input};
-use std::cmp::{max, min, Reverse};
+use petgraph::{algo::kosaraju_scc as scc, graph::NodeIndex, Directed, Graph};
+use proconio::{
+    fastout, input,
+    marker::{Chars, Usize1},
+};
+use std::cmp::{max as _max, min as _min, Reverse};
 use std::collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque};
 use std::f64::consts::PI;
 use std::i32::MAX as inf;
@@ -45,11 +45,13 @@ use std::mem::swap;
 const TAU: f64 = PI * 2.;
 
 #[cfg_attr(cargo_equip, cargo_equip::equip)]
-use acl_maxflow::MfGraph;
+use ac_library_rs::{floor_sum, Dsu, MfGraph, ModInt1000000007, ModInt998244353};
 #[cfg_attr(cargo_equip, cargo_equip::equip)]
 use alds_lib::{
     chmax, chmin,
-    collections::{Counter, MultiSet},
+    collections::{Counter, FenwickTree, MultiSet, Segtree},
+    max, min,
+    monoid::{Max, Min, Monoid, Product, Sum},
 };
 use utils::debug;
 
@@ -120,19 +122,8 @@ rand = {version = "=0.7.3", features = ["small_rng"]}
 # rustc-hash = "=1.1.0"
 # smallvec = "=1.2.0"
 
-ac-library-rs-parted-convolution = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-dsu = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-fenwicktree = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-lazysegtree = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-math = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-maxflow = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-mincostflow = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-modint = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-scc = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-segtree = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-string = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-ac-library-rs-parted-twosat = {git = "https://github.com/qryxip/ac-library-rs-parted"}
-alds-lib = { path = "../../alds-lib" }
+ac-library-rs-parted = {git = "https://github.com/qryxip/ac-library-rs-parted"}
+alds-lib = {path = "../../alds-lib"}
 '''
 
 profile = '''
