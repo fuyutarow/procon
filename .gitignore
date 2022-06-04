@@ -1,6 +1,10 @@
-atcoder/*
-!atcoder/compete.toml
-!atcoder/rust-toolchain
+# atcoder/*
+# !atcoder/compete.toml
+# !atcoder/rust-toolchain
+atcoder/*/target/**
+atcoder/*/testcases/**
+
+
 codeforces/*
 !codeforces/compete.toml
 !codeforces/rust-toolchain

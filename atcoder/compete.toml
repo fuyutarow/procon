@@ -35,7 +35,7 @@ use num::integer::gcd;
 use petgraph::{algo::kosaraju_scc as scc, graph::NodeIndex, Directed, Graph};
 use proconio::{
     fastout, input,
-    marker::{Chars, Usize1},
+    marker::{Bytes, Chars, Usize1},
 };
 use std::cmp::{max as _max, min as _min, Reverse};
 use std::collections::{BTreeMap, BTreeSet, BinaryHeap, HashMap, HashSet, VecDeque};
@@ -74,6 +74,7 @@ mod utils {
     }
     pub(crate) use debug;
 }
+
 '''
 
 [template.new]

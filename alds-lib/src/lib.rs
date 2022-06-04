@@ -1,7 +1,7 @@
 pub mod collections;
 
 pub mod monoid;
-use monoid::Monoid;
+pub use monoid::Monoid;
 
 /// impl_monoid!(Max, usize, 0, |&x,&y| std::cmp::max(x,y));
 #[macro_export]
